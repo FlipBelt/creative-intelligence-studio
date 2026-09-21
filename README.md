@@ -32,3 +32,4 @@ OpenDesign 参考对象已由用户确认：[nexu-io/open-design](https://github
 - 浏览器本地演示数据：不与团队同步、不代表正式产品知识。
 - 产品、需求、参考、分析、方向、创意板、生产、评审与最终资产页面可预览。文案制作使用明确标注的本地模板；图片/视频/知识/NAS未接入。
 - 详细边界与摄影来源见 [预览范围](docs/preview-scope.md)。
+首版预览：[打开 CIS 工作台](https://creative-intelligence-studio.sunwelljohn254892.chatgpt.site)（Sites默认私有访问）。
