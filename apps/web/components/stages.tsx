@@ -4,7 +4,7 @@ import {ArrowRight,Check,LockKeyhole,Download,FileText,ArrowUpRight,BookOpen,Inf
 import {references,directions,type Reference} from "../lib/data";
 import {type Project,type Stage,type Asset,canProduce,directionGate,finals} from "../lib/workflow";
 import {Button,Empty,Heading,Photo,ReferenceCard,StepLink} from "./ui";
-export type Actions={input:(patch:Partial<Pick<Project,"brief"|"audience"|"output"|"product"|"bound"|"confirmed"|"refs">>)=>void;confirm:(id:string)=>void;produce:()=>void;review:(a:Asset)=>void;openReference:(r:Reference)=>void;notify:(s:string)=>void;dirty:(s:boolean)=>void};
+export type Actions={input:(patch:Partial<Pick<Project,"brief"|"audience"|"output"|"product"|"bound"|"confirmed"|"refs"|"simple">>)=>void;confirm:(id:string)=>void;produce:()=>void;review:(a:Asset)=>void;openReference:(r:Reference)=>void;notify:(s:string)=>void;dirty:(s:boolean)=>void};
 export function downloadAsset(p:Project,a:Asset){
  const text="# "+p.name+"\n\n> CIS 首版预览 · 本地模板演示，不是AI生成或正式产品内容。\n\n"+a.text+"\n\n---\n输入版本："+a.revision+"\n产物版本："+a.id+"\n审核："+a.status+"\n备注："+a.note;
  const url=URL.createObjectURL(new Blob([text],{type:"text/markdown;charset=utf-8"}));const link=document.createElement("a");link.href=url;link.download="cis-preview-"+a.id+".md";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
