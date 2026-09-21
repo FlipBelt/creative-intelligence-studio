@@ -6,7 +6,7 @@
     "dev": "node scripts/run-next.mjs dev apps/web --hostname 127.0.0.1 --port 3100",
     "build": "node scripts/run-next.mjs build apps/web && node scripts/stage-export.mjs",
     "typecheck": "tsc --noEmit -p apps/web/tsconfig.json",
-    "test": "node --experimental-strip-types --test apps/web/lib/workflow.test.ts"
+    "test": "node --experimental-strip-types --test apps/web/lib/workflow.test.ts apps/web/lib/studio.test.ts"
   },
   "dependencies": {
     "next": "16.3.5",

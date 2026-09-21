@@ -1,5 +1,5 @@
 export type Asset = { id: string; text: string; revision: number; createdAt: string; status: "pending" | "approved" | "rejected"; note: string };
-export type Project = { simple?: boolean; id: string; name: string; category: string; brief: string; audience: string; output: string; product: string; bound: boolean; confirmed: boolean; refs: string[]; direction: string; instructionRevision: number | null; revision: number; archived: boolean; assets: Asset[]; cover: string; updatedAt: string };
+export type Project = { simple?: boolean; skillIds?: string[]; id: string; name: string; category: string; brief: string; audience: string; output: string; product: string; bound: boolean; confirmed: boolean; refs: string[]; direction: string; instructionRevision: number | null; revision: number; archived: boolean; assets: Asset[]; cover: string; updatedAt: string };
 export const stages = [
  ["product","产品理解"],["intent","创意需求"],["references","参考发现"],["reference-set","参考组合"],["analysis","创意分析"],["directions","创意方向"],["board","创意板"],["production","生产工作室"],["review","评审"],["finals","最终资产"]
 ] as const;
@@ -36,7 +36,7 @@ export function decodeProjects(raw:string):Project[] {
  if(!data||typeof data!=="object"||!("version"in data)||data.version!==1||!("projects"in data)||!Array.isArray(data.projects))throw new Error("本地数据版本不受支持");
  const strings=["id","name","category","brief","audience","output","product","direction","cover","updatedAt"] as const;
  for(const p of data.projects){
-  if(!p||typeof p!=="object"||(p.simple!==undefined&&typeof p.simple!=="boolean")||strings.some(k=>typeof p[k]!=="string")||!["bound","confirmed","archived"].every(k=>typeof p[k]==="boolean")||!Number.isInteger(p.revision)||p.revision<1||!(p.instructionRevision===null||Number.isInteger(p.instructionRevision))||!Array.isArray(p.refs)||!p.refs.every((s:unknown)=>typeof s==="string")||!Array.isArray(p.assets))throw new Error("本地项目数据无法读取");
+  if(!p||typeof p!=="object"||(p.simple!==undefined&&typeof p.simple!=="boolean")||(p.skillIds!==undefined&&(!Array.isArray(p.skillIds)||!p.skillIds.every((s:unknown)=>typeof s==="string")))||strings.some(k=>typeof p[k]!=="string")||!["bound","confirmed","archived"].every(k=>typeof p[k]==="boolean")||!Number.isInteger(p.revision)||p.revision<1||!(p.instructionRevision===null||Number.isInteger(p.instructionRevision))||!Array.isArray(p.refs)||!p.refs.every((s:unknown)=>typeof s==="string")||!Array.isArray(p.assets))throw new Error("本地项目数据无法读取");
   for(const a of p.assets)if(!a||!["id","text","createdAt","note"].every(k=>typeof a[k]==="string")||!Number.isInteger(a.revision)||!["pending","approved","rejected"].includes(a.status))throw new Error("本地产物数据无法读取");
  }
  return data.projects as Project[];
