@@ -34,3 +34,23 @@ Sites预览：https://creative-intelligence-studio.sunwelljohn254892.chatgpt.sit
 P0-WEB-006 [x]（2026-09-21）：按用户批准的界面建议，统一侧边栏；图片／文案／视频首屏入口；场景引导、简易需求、三步创作；专业工具与历史版本折叠。保留旧项目，未知事实不补造。T2：npm test 9/9、typecheck与正式构建通过；浏览器验证一句需求建立项目、方向确认、文案生成演示/修改另存/审核、图片计划与视频未接入提示、360px首页与结果页无横向溢出、移动导航开关。用户业务及视觉验收仍待完成。发布证据记于全局任务日志。
 
 P0-WEB-007 [x]（2026-09-21）：用户批准输入框核心首页、参考瀑布流、导航排序、员工图片作品与技能审核前端。实现本地图片提交/评分/精选，技能待审/发布/退回/停用/版本替换；所有状态明确本地演示。T2本地状态测试15项通过、typecheck通过；真实鉴权与审批执行属于尚未实现的T3接入项。浏览器验证参考回填草稿、直接创作、技能上传审批后可选、作品上传/事实检查/评分筛选；发布证据见任务日志。
+
+## 2026-10-16：FBC-220 云端开发首批
+
+本批已获用户实施授权：先拆分并同步 Linear，完成隔离开发环境、CI 和 Mock 测试，保留既有预览，暂不部署生产。旧全栈待办不自动推进或批量改记完成。FBC-5 静态审计 Done、FBC-7 本机 Penpot 技术 PoC 部分通过；FBC-6/8/9 的企业兼容、接口审计和人工 ADR 继续开放。
+
+| 事项 | 状态 | 依赖/范围 | 可观察交付 |
+|---|---|---|---|
+| [FBC-230](https://linear.app/j21nianyi/issue/FBC-230) | [x] 技术交付 | 本批范围与证据 | Linear 子任务/关联回读、预览保护、文档分工 |
+| [FBC-231](https://linear.app/j21nianyi/issue/FBC-231) | [x] 技术交付 | FBC-230 | 固定工具链、容器真实冷启动和目标检查 |
+| [FBC-232](https://linear.app/j21nianyi/issue/FBC-232) | [x] 技术交付 | FBC-231 | 最小权限 CI、预览基线门禁、对应 SHA 成功日志 |
+| [FBC-233](https://linear.app/j21nianyi/issue/FBC-233) | [x] 技术交付 | FBC-231 | 合成 Mock/契约、stdio+HTTP、权限/过期/版本/幂等/重试测试 |
+| [FBC-234](https://linear.app/j21nianyi/issue/FBC-234) | [x] 技术交付 | FBC-231/232/233 | 干净云端验证、Draft PR、SHA/CI 和独立回读 |
+| [FBC-235](https://linear.app/j21nianyi/issue/FBC-235) | [ ] 后续真实验收 | FBC-6/7/8/9/10/11、234/236 | 真实客户端、原生编辑/人工审核、DAM 登记回执 |
+| [FBC-236](https://linear.app/j21nianyi/issue/FBC-236) | [ ] 后续验证 | FBC-8/9 | 实际素材权限、公开资料边界、独立加密恢复 |
+
+实现与复现说明见 [云端开发说明](cloud-development.md)。代码和自动验证不替代真人 Codespaces 体验、千问企业兼容、设计师 UAT 或生产审批。真实 P1 首轮增加人工确认导入 DAM 的回执验收，自动回流留 FBC-16/17。
+
+本仓 TODO 继续为开发待办真源；Linear 同步执行状态/优先级/依赖。验收定义先由仓库 PR 更新再回写 Linear；状态和回执从 Linear 回读后更新本仓。冲突显式记录待协调，不静默覆盖。首批完成与剩余边界以最终 PR/CI 回执补记。
+
+首批技术回执：实现提交 `8d406d0c1e2ac7f98cdf58932729094794afa8b4` 已在 [Draft PR #2](https://github.com/FlipBelt/creative-intelligence-studio/pull/2) 交付；[云端 CI 38848097680](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/38848097680) 的 Linux 宿主与实际 Dev Container 构建/启动/容器内检查均成功。每条执行路径均为工程11、旧预览15、Mock25共51项，typecheck和静态构建通过。本次文档回写的最终提交/CI在PR和Linear持续关联，不将同一测试在不同环境执行累加成更多独立用例。PR待审未合并；主分支仍为714cf137，实际保护规则未启用。真人云端体验、FBC-6/7/8/9、FBC-235/236和生产放行继续开放。
