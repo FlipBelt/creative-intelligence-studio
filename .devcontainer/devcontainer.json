@@ -1,0 +1,28 @@
+{
+  "name": "CIS cloud foundation",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "node",
+  "containerUser": "node",
+  "userEnvProbe": "none",
+  "postCreateCommand": "node scripts/check-toolchain.mjs && npm ci --ignore-scripts",
+  "waitFor": "postCreateCommand",
+  "forwardPorts": [3100],
+  "portsAttributes": {
+    "3100": {
+      "label": "CIS preview (start manually; keep private)",
+      "onAutoForward": "silent"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "telemetry.telemetryLevel": "off"
+      }
+    }
+  }
+}
