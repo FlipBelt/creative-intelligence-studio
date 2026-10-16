@@ -86,4 +86,6 @@ npm run test:mock
 
 FBC-6/7/8 实测与本批工程准备可并行；FBC-9 仍决定真实 P1 主入口和降级方案。首轮真实闭环若用人工确认导入 DAM，必须取得真实版本、审核和登记回执；自动回流继续在 FBC-16/17 后置。
 
-本批自动验证、实际云端日志和残余风险将记录在 PR 与 Linear；本文件中的命令及目标不自动代表验收通过。
+本批技术验证已完成：实现 SHA `8d406d0c1e2ac7f98cdf58932729094794afa8b4` 的 [CI 38848097680](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/38848097680) 在 Linux 宿主与实际 Dev Container 内均通过 `check:cloud`。容器 job 实际执行了构建、启动、postCreate 锁文件安装和容器内检查；每条路径11项工程检查、15项旧预览测试、25项Mock测试、typecheck和静态构建全部通过。本机Windows也完成相同检查。本次文档回写提交的最终CI见 [Draft PR #2](https://github.com/FlipBelt/creative-intelligence-studio/pull/2) 和Linear回执。
+
+PR待审未合并，主分支和线上预览保持。实际GitHub分支保护仍未启用；用户亲自操作Codespaces、真实千问/客户端、Penpot与DAM接通、业务UAT、公开Git历史审查和独立恢复不在本批通过范围。

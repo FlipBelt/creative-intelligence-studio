@@ -41,14 +41,16 @@ P0-WEB-007 [x]（2026-09-21）：用户批准输入框核心首页、参考瀑�
 
 | 事项 | 状态 | 依赖/范围 | 可观察交付 |
 |---|---|---|---|
-| [FBC-230](https://linear.app/j21nianyi/issue/FBC-230) | [ ] 实施中 | 本批范围与证据 | Linear 子任务/关联回读、预览保护、文档分工 |
-| [FBC-231](https://linear.app/j21nianyi/issue/FBC-231) | [ ] 实施中 | FBC-230 | 固定工具链、容器真实冷启动和目标检查 |
-| [FBC-232](https://linear.app/j21nianyi/issue/FBC-232) | [ ] 实施中 | FBC-231 | 最小权限 CI、预览基线门禁、最终 SHA 成功日志 |
-| [FBC-233](https://linear.app/j21nianyi/issue/FBC-233) | [ ] 实施中 | FBC-231 | 合成 Mock/契约、stdio+HTTP、权限/过期/版本/幂等/重试测试 |
-| [FBC-234](https://linear.app/j21nianyi/issue/FBC-234) | [ ] 待技术验证 | FBC-231/232/233 | 干净云端验证、Draft PR、SHA/CI 和独立回读 |
+| [FBC-230](https://linear.app/j21nianyi/issue/FBC-230) | [x] 技术交付 | 本批范围与证据 | Linear 子任务/关联回读、预览保护、文档分工 |
+| [FBC-231](https://linear.app/j21nianyi/issue/FBC-231) | [x] 技术交付 | FBC-230 | 固定工具链、容器真实冷启动和目标检查 |
+| [FBC-232](https://linear.app/j21nianyi/issue/FBC-232) | [x] 技术交付 | FBC-231 | 最小权限 CI、预览基线门禁、对应 SHA 成功日志 |
+| [FBC-233](https://linear.app/j21nianyi/issue/FBC-233) | [x] 技术交付 | FBC-231 | 合成 Mock/契约、stdio+HTTP、权限/过期/版本/幂等/重试测试 |
+| [FBC-234](https://linear.app/j21nianyi/issue/FBC-234) | [x] 技术交付 | FBC-231/232/233 | 干净云端验证、Draft PR、SHA/CI 和独立回读 |
 | [FBC-235](https://linear.app/j21nianyi/issue/FBC-235) | [ ] 后续真实验收 | FBC-6/7/8/9/10/11、234/236 | 真实客户端、原生编辑/人工审核、DAM 登记回执 |
 | [FBC-236](https://linear.app/j21nianyi/issue/FBC-236) | [ ] 后续验证 | FBC-8/9 | 实际素材权限、公开资料边界、独立加密恢复 |
 
 实现与复现说明见 [云端开发说明](cloud-development.md)。代码和自动验证不替代真人 Codespaces 体验、千问企业兼容、设计师 UAT 或生产审批。真实 P1 首轮增加人工确认导入 DAM 的回执验收，自动回流留 FBC-16/17。
 
 本仓 TODO 继续为开发待办真源；Linear 同步执行状态/优先级/依赖。验收定义先由仓库 PR 更新再回写 Linear；状态和回执从 Linear 回读后更新本仓。冲突显式记录待协调，不静默覆盖。首批完成与剩余边界以最终 PR/CI 回执补记。
+
+首批技术回执：实现提交 `8d406d0c1e2ac7f98cdf58932729094794afa8b4` 已在 [Draft PR #2](https://github.com/FlipBelt/creative-intelligence-studio/pull/2) 交付；[云端 CI 38848097680](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/38848097680) 的 Linux 宿主与实际 Dev Container 构建/启动/容器内检查均成功。每条执行路径均为工程11、旧预览15、Mock25共51项，typecheck和静态构建通过。本次文档回写的最终提交/CI在PR和Linear持续关联，不将同一测试在不同环境执行累加成更多独立用例。PR待审未合并；主分支仍为714cf137，实际保护规则未启用。真人云端体验、FBC-6/7/8/9、FBC-235/236和生产放行继续开放。
