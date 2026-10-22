@@ -1,5 +1,7 @@
 # Creative Intelligence Studio
 
+当前产品定位：精选素材站与Agent工具入口。首页以发现、选择、来源及清单为核心；旧网页创作演示后置。v5曾保留旧创作输入框；本轮已完成素材优先首页、清单交接和旧版入口兼容的纠偏，已发布同一Sites v6（source da3b83d、部署succeeded），并刷新现有预览页确认无创作输入框；回执见Linear FBC-268。正式Agent插件/真实素材网关仍待接入，不以Mock或手工复制冒充。
+
 Agent 驱动的创意工具生态与素材中转试验；仓库同时保留既有创作工作台预览。
 
 状态：2026-09-21 已实现首版 Next.js 前端交互预览；设计与真实业务验收仍待人工完成。团队仓库：[FlipBelt/creative-intelligence-studio](https://github.com/FlipBelt/creative-intelligence-studio)，公开可见。Sites 发布由 .openai/hosting.json 绑定，同一预览持续更新。
@@ -22,6 +24,10 @@ npm run check:cloud
 ## 独立输入门禁开发
 
 2026-10-22：Penpot PR #12525 等待上游；[FBC-267 合成试点输入包离线门禁](tools/pilot-input/README.md)独立推进，校验固定版本、实际字节摘要和用途许可记录。执行 `npm run test:pilot-input`；新测试进入既有 `check:cloud`。只处理本地合成数据，不证明真实权限/版权/恢复或业务验收，不改变现有预览或生产。
+
+## Reference 契约与主页交互（本地分支）
+
+FBC-243优先推进官方数据源研究和[FBC-245合成Reference Mock](tools/mock-mcp/REFERENCE-MOCK.md)，使用 npm run test:reference / npm run mock:reference。未接入真实Pinterest/Apify或DAM。主页沿用现有结构补最近项目、续作与示例替换确认；获准5文件源码列入精确摘要审阅，Sites线上预览未更新。实际平台/素材许可和云资源仍见[FBC-244研究门禁](docs/research/fbc-244-pinterest-data-source-feasibility-2026-10-22.md)。
 
 ## 阅读顺序
 
@@ -54,3 +60,16 @@ OpenDesign 参考对象已由用户确认：[nexu-io/open-design](https://github
 - 管理员角色切换只是明确标注的流程演示，真实身份、审批、共享存储与服务端权限尚未接入。
 - 详细边界与摄影来源见 [预览范围](docs/preview-scope.md)。
 首版预览：[打开 CIS 工作台](https://creative-intelligence-studio.sunwelljohn254892.chatgpt.site)（Sites默认私有访问）。
+
+
+## 2026-10-22：本批审查、PR与发布授权
+
+用户已明确授权审查FBC-245/268，无阻塞后提交、推送、创建PR、同步Linear并部署生产；本节覆盖前述本地阶段“尚不推送/部署”的历史范围。本批两项独立代码审查未发现可操作P1/P2。变更范围仍为合成Reference契约/stdio Mock与现有主页交互，不开启真实采集、付费调用、DAM写入或生成服务。
+
+当前部署目标经Sites回读为既有绑定站点，保持owner-private访问范围；交付仅静态主页，Mock不作为线上服务运行。原Sites版本4/source714cf137保留为回滚点。本轮不请求合并GitHub PR；发布使用审查且CI通过的同一分支提交，GitHub主分支保护保持。
+
+本批源码审查/本地实现为已完成项；PR/对应SHA远端CI/Sites保存版本及部署状态属于单独回执，以[Linear FBC-245](https://linear.app/j21nianyi/issue/FBC-245)和[FBC-268](https://linear.app/j21nianyi/issue/FBC-268)的本轮最新记录为准。自动验证/技术发布不替代人工视觉、业务或真实provider验收；FBC-244真实资源/资格/许可及246～248门禁继续开放。
+
+## 2026-10-22 发布回执
+
+[FBC-245/268 PR4](https://github.com/FlipBelt/creative-intelligence-studio/pull/4)已创建，应用提交b018782经Host/Dev Container CI后发布Sites v5；[当前正式地址](https://creative-intelligence-studio.nianyi21j.chatgpt.site)，仍仅本人访问。主页交互已上线，Reference Mock仅为合成测试工具，真实数据源/生成/DAM未接入。PR保持开放，人工业务/视觉UAT另验；详细状态见docs/TODO.md及Linear。
