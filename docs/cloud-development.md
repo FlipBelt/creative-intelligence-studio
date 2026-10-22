@@ -2,6 +2,12 @@
 
 日期：2026-10-16。父事项：[FBC-220](https://linear.app/j21nianyi/issue/FBC-220)。本批只交付开发环境、CI 和 Mock 技术验证，保留已有预览。真实企业接通、业务 UAT 与生产放行各自记录。
 
+## 2026-10-22 当前开发状态（覆盖下方首批历史快照）
+
+只读回读确认：PR #2 已于 2026-10-16 合并，main 为 `5ed3e6e16e9fa391ec0f5d375ac637cdb090d467`。主分支保护已启用，要求 Host checks / Dev container checks、strict 和 enforce_admins，禁止 force push / deletion。以下“PR待审/保护未启用”是首批交付时的历史记录。
+
+本轮不再重复等待 Penpot：#12525 子项标为等待上游，独立实施 [FBC-267](https://linear.app/j21nianyi/issue/FBC-267) 合成输入包离线门禁。说明见 [输入包门禁](../tools/pilot-input/README.md)；新测试接入既有 `check:cloud`，本轮实际本地验证结果在 TODO 单独记录，不冒称新提交的 GitHub CI 已运行。实际权限、许可、备份恢复、真实客户端/DAM 回执及人工验收仍须逐项完成。
+
 ## 范围与输入
 
 - 固定基线为 `714cf137f136f9a8b951b38a0a2a846d01b377aa`。原工作区的未提交审计、实验和附件保持；本批从干净主线在独立工作树实施，不批量将旧材料加入公开仓。

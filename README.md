@@ -19,6 +19,10 @@ npm run check:cloud
 
 冷启动、私有预览端口、权限边界和验收证据见 [云端开发说明](docs/cloud-development.md)。本批任务为 [FBC-230～234](https://linear.app/j21nianyi/issue/FBC-230)；真实客户端和权限/恢复分别由 [FBC-235](https://linear.app/j21nianyi/issue/FBC-235)、[FBC-236](https://linear.app/j21nianyi/issue/FBC-236) 跟踪。
 
+## 独立输入门禁开发
+
+2026-10-22：Penpot PR #12525 等待上游；[FBC-267 合成试点输入包离线门禁](tools/pilot-input/README.md)独立推进，校验固定版本、实际字节摘要和用途许可记录。执行 `npm run test:pilot-input`；新测试进入既有 `check:cloud`。只处理本地合成数据，不证明真实权限/版权/恢复或业务验收，不改变现有预览或生产。
+
 ## 阅读顺序
 
 1. [产品与实施架构](docs/architecture.md)
