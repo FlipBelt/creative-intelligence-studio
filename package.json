@@ -17,7 +17,8 @@
     "test:cloud-checks": "node --test scripts/cloud-checks.test.mjs",
     "test:mock": "node --test tests/mock-mcp/*.test.mjs",
     "mock:stdio": "node tools/mock-mcp/stdio.mjs",
-    "check:cloud": "npm run check:toolchain && npm run check:preview && npm run test:cloud-checks && npm run typecheck && npm test && npm run test:mock && npm run build"
+    "check:cloud": "npm run check:toolchain && npm run check:preview && npm run test:cloud-checks && npm run typecheck && npm test && npm run test:mock && npm run test:pilot-input && npm run build",
+    "test:pilot-input": "node --test tests/pilot-input/*.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

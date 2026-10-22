@@ -1,0 +1,2 @@
+# Input-package fixtures bind exact bytes and must survive Windows checkout unchanged.
+tests/pilot-input/fixtures/** -text

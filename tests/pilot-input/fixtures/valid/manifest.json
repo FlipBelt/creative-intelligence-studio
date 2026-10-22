@@ -1,0 +1,50 @@
+{
+  "schema_version": "pilot-input-v1",
+  "data_classification": "synthetic",
+  "project_id": "synthetic_project",
+  "purpose": "internal_wireframe",
+  "processor": "synthetic_codex",
+  "brief": {
+    "id": "synthetic_brief",
+    "version": "synthetic_v1",
+    "sha256": "e9e5ce382b3e589a944cce15a5a438c89c6284da8a6686a9e80ea88505196565",
+    "path": "brief.md"
+  },
+  "knowledge": [
+    {
+      "id": "synthetic_knowledge",
+      "version": "synthetic_v1",
+      "sha256": "da01c2e5ef3eeb78902fa3f08cd7ffa2fab55caf9a568a4a7f459b5d0104023e",
+      "path": "knowledge.md",
+      "release_id": "synthetic_release_v1"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "synthetic_asset",
+      "version": "synthetic_v1",
+      "sha256": "a81e40a5c269cf3cfbd1eac88fc94e6e9ba0641bb6ecdff93aea4fcf19c5ae9e",
+      "path": "asset.svg",
+      "mime_type": "image/svg+xml",
+      "byte_size": 112,
+      "source_ref": "synthetic_source",
+      "parent_version": null,
+      "license": {
+        "status": "granted",
+        "evidence_ref": "synthetic_license_fixture",
+        "allowed_purposes": [
+          "internal_wireframe"
+        ],
+        "allowed_processors": [
+          "synthetic_codex"
+        ],
+        "expires_at": "2099-01-01T00:00:00Z",
+        "revoked_at": null
+      }
+    }
+  ],
+  "confirmation": {
+    "kind": "synthetic_fixture",
+    "input_digest": "2f63952557a280be63836c6ed28820a57905bd9f335dc2054a0c8afae03a19c0"
+  }
+}
