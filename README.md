@@ -1,5 +1,7 @@
 # Creative Intelligence Studio
 
+当前产品定位：精选素材站与Agent工具入口。首页以发现、选择、来源及清单为核心；旧网页创作演示后置。v5曾保留旧创作输入框；本轮已完成素材优先首页、清单交接和旧版入口兼容的纠偏，发布回执见Linear FBC-268。正式Agent插件/真实素材网关仍待接入，不以Mock或手工复制冒充。
+
 Agent 驱动的创意工具生态与素材中转试验；仓库同时保留既有创作工作台预览。
 
 状态：2026-09-21 已实现首版 Next.js 前端交互预览；设计与真实业务验收仍待人工完成。团队仓库：[FlipBelt/creative-intelligence-studio](https://github.com/FlipBelt/creative-intelligence-studio)，公开可见。Sites 发布由 .openai/hosting.json 绑定，同一预览持续更新。
