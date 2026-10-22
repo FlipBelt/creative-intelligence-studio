@@ -103,3 +103,12 @@ P1即有简单ReferenceSet和CreativeInstruction以固定输入；P2扩展集合
 - FBC-220 新增的 DAM 登记验收与 P1 对齐：首轮可人工确认导入，但必须有真实登记及版本/审核回执；自动回流仍后置，不以 Mock 记录代替。
 
 首批复现与边界见 [云端开发说明](cloud-development.md)。本轮没有批准生产写入、真实账号代操作、企业资料上传、采购、NAS 公网挂载或自动合并 PR。
+
+
+## 2026-10-22 Reference Connector 合成契约与接入门禁
+
+FBC-243/245先在contracts/reference-collection.mjs定义CIS自己的版本化合成接口，由tools/mock-mcp/reference-*.mjs装配独立stdio服务；不向旧Web或业务Core引入供应商SDK。固定启动身份仅用于权限负向测试，全部结果保留synthetic与provider未配置/资格未知/持久化未授权标记。选择不授予权利，内存清理不代表备份恢复。
+
+Pinterest官方用户Pins搜索与受限beta搜索能力不同；真实采集、缓存、AI第三方处理与DAM入库不能由API可调用或公开图片推导许可。ADR-PIN-001仍为Proposed，原“缓存→精选→DAM”须先通过平台、素材、用途和实际资源门禁。事实/未知/实施顺序见[FBC-244报告](research/fbc-244-pinterest-data-source-feasibility-2026-10-22.md)。
+
+既有Web仅增加本地交互：继续使用当前浏览器项目、旧hash路由和存储格式；主页/列表统一续作阶段，未配置知识/图片/视频/真实身份仍明确提示。未新增后台、网络采集、真实API、资产库或生产部署。

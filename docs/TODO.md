@@ -65,3 +65,25 @@ P0-WEB-007 [x]（2026-09-21）：用户批准输入框核心首页、参考瀑�
 本仓 TODO 继续为开发待办真源；Linear 同步执行状态/优先级/依赖。验收定义先由仓库 PR 更新再回写 Linear；状态和回执从 Linear 回读后更新本仓。冲突显式记录待协调，不静默覆盖。首批完成与剩余边界以最终 PR/CI 回执补记。
 
 首批技术回执：实现提交 `8d406d0c1e2ac7f98cdf58932729094794afa8b4` 已在 [Draft PR #2](https://github.com/FlipBelt/creative-intelligence-studio/pull/2) 交付；[云端 CI 38848097680](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/38848097680) 的 Linux 宿主与实际 Dev Container 构建/启动/容器内检查均成功。每条执行路径均为工程11、旧预览15、Mock25共51项，typecheck和静态构建通过。本次文档回写的最终提交/CI在PR和Linear持续关联，不将同一测试在不同环境执行累加成更多独立用例。PR待审未合并；主分支仍为714cf137，实际保护规则未启用。真人云端体验、FBC-6/7/8/9、FBC-235/236和生产放行继续开放。
+
+
+## 2026-10-22 FBC-243 与现有主页交互（本地分支）
+
+- [x] [FBC-244](https://linear.app/j21nianyi/issue/FBC-244) 官方数据源研究子阶段：[报告](research/fbc-244-pinterest-data-source-feasibility-2026-10-22.md)。用户Pins与受限beta检索区别、保存/AI/第三方许可、配额及费用均单列；实际应用资格/阿里云资源未知，244继续In Progress。
+- [x] [FBC-245](https://linear.app/j21nianyi/issue/FBC-245) 本地合成契约实现与验证：六工具、严格版本/启动身份、owner/project隔离、游标/幂等/预算/失败/URL/删除及SDK stdio，目标17/17通过；Linear In Review，尚未提交/推送。
+- [x] [FBC-268 / P0-WEB-008](https://linear.app/j21nianyi/issue/FBC-268) 本地主页交互：最近项目、统一续作、示例替换确认与焦点；导航目标7/7及浏览器smoke通过，360/768/1440px无溢出。Linear In Review，人工视觉/业务UAT未验。
+- [ ] 真实provider/平台与素材许可、实际云资源、真实ReferenceSet/DAM及人工Go：FBC-246/247/248保持后续门禁，未运行Actor/付费调用/部署。
+- 保留原Sites线上预览和所有旧工作区改动。获准变化的5个Web源码在scripts/preview-review.json列精确摘要（统一LF）；其他Web文件/媒体、Sites绑定、导出脚本和原V0.5继续保护。后续源码变更需重新审阅摘要，不自动放行。
+
+- [x] 本地npm run check:cloud：19工程+22前端+25既有Mock+38输入门禁+17Reference=121项，typecheck/静态构建通过；独立复核无P1/P2。
+- [ ] FBC-245/268源码审阅后按授权提交、推送与PR交付；新改动尚无远端CI，不能使用PR3 CI代替。
+- [x] FBC-267已随[PR3](https://github.com/FlipBelt/creative-intelligence-studio/pull/3)合并至main ca8bc97；[main CI39733146440](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/39733146440)双job成功，Linear267 Done、236/220仍In Progress。前述首批Draft/保护未启用是历史快照。
+
+
+## 2026-10-22：本批审查、PR与发布授权
+
+用户已明确授权审查FBC-245/268，无阻塞后提交、推送、创建PR、同步Linear并部署生产；本节覆盖前述本地阶段“尚不推送/部署”的历史范围。本批两项独立代码审查未发现可操作P1/P2。变更范围仍为合成Reference契约/stdio Mock与现有主页交互，不开启真实采集、付费调用、DAM写入或生成服务。
+
+当前部署目标经Sites回读为既有绑定站点，保持owner-private访问范围；交付仅静态主页，Mock不作为线上服务运行。原Sites版本4/source714cf137保留为回滚点。本轮不请求合并GitHub PR；发布使用审查且CI通过的同一分支提交，GitHub主分支保护保持。
+
+本批源码审查/本地实现为已完成项；PR/对应SHA远端CI/Sites保存版本及部署状态属于单独回执，以[Linear FBC-245](https://linear.app/j21nianyi/issue/FBC-245)和[FBC-268](https://linear.app/j21nianyi/issue/FBC-268)的本轮最新记录为准。自动验证/技术发布不替代人工视觉、业务或真实provider验收；FBC-244真实资源/资格/许可及246～248门禁继续开放。

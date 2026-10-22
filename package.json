@@ -11,14 +11,16 @@
     "dev": "node scripts/run-next.mjs dev apps/web --hostname 127.0.0.1 --port 3100",
     "build": "node scripts/run-next.mjs build apps/web && node scripts/stage-export.mjs",
     "typecheck": "tsc --noEmit -p apps/web/tsconfig.json",
-    "test": "node --experimental-strip-types --test apps/web/lib/workflow.test.ts apps/web/lib/studio.test.ts",
+    "test": "node --experimental-strip-types --test apps/web/lib/workflow.test.ts apps/web/lib/studio.test.ts apps/web/lib/project-navigation.test.ts",
     "check:toolchain": "node scripts/check-toolchain.mjs",
     "check:preview": "node scripts/check-preview.mjs",
     "test:cloud-checks": "node --test scripts/cloud-checks.test.mjs",
     "test:mock": "node --test tests/mock-mcp/*.test.mjs",
     "mock:stdio": "node tools/mock-mcp/stdio.mjs",
-    "check:cloud": "npm run check:toolchain && npm run check:preview && npm run test:cloud-checks && npm run typecheck && npm test && npm run test:mock && npm run test:pilot-input && npm run build",
-    "test:pilot-input": "node --test tests/pilot-input/*.test.mjs"
+    "check:cloud": "npm run check:toolchain && npm run check:preview && npm run test:cloud-checks && npm run typecheck && npm test && npm run test:mock && npm run test:pilot-input && npm run test:reference && npm run build",
+    "test:pilot-input": "node --test tests/pilot-input/*.test.mjs",
+    "test:reference": "node --test tests/reference-mock/*.test.mjs",
+    "mock:reference": "node tools/mock-mcp/reference-stdio.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "baseline": "714cf137f136f9a8b951b38a0a2a846d01b377aa",
+  "files": {
+    "apps/web/components/home-studio.tsx": "43d88af9f7541cedefe06af4d766eabe46e36d0463b87c63b5ab331fae706f8c",
+    "apps/web/app/page.tsx": "2b02692583e3fa2d1b77f097d0930e42b724662ee5e87d05801720b35bc88e15",
+    "apps/web/app/globals.css": "2ed29536f27d3da6ddd5116027d51bb6624752172e056950533c068cf6c2fdda",
+    "apps/web/lib/project-navigation.ts": "f6b06b76dcddd8928296a0238340be69812d34878c9210f98599511c38d7b749",
+    "apps/web/lib/project-navigation.test.ts": "78d91701fd1ff02c3f4d96cdbf1befa4f9a4cd703124ce68b77bca78580907ab"
+  }
+}
