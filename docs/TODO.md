@@ -70,13 +70,13 @@ P0-WEB-007 [x]（2026-09-21）：用户批准输入框核心首页、参考瀑�
 ## 2026-10-22 FBC-243 与现有主页交互（本地分支）
 
 - [x] [FBC-244](https://linear.app/j21nianyi/issue/FBC-244) 官方数据源研究子阶段：[报告](research/fbc-244-pinterest-data-source-feasibility-2026-10-22.md)。用户Pins与受限beta检索区别、保存/AI/第三方许可、配额及费用均单列；实际应用资格/阿里云资源未知，244继续In Progress。
-- [x] [FBC-245](https://linear.app/j21nianyi/issue/FBC-245) 本地合成契约实现与验证：六工具、严格版本/启动身份、owner/project隔离、游标/幂等/预算/失败/URL/删除及SDK stdio，目标17/17通过；Linear In Review，尚未提交/推送。
+- [x] [FBC-245](https://linear.app/j21nianyi/issue/FBC-245) 本地合成契约实现与验证：六工具、严格版本/启动身份、owner/project隔离、游标/幂等/预算/失败/URL/删除及SDK stdio，目标17/17通过；[PR4](https://github.com/FlipBelt/creative-intelligence-studio/pull/4)已提交/推送，Linear In Review待合并。
 - [x] [FBC-268 / P0-WEB-008](https://linear.app/j21nianyi/issue/FBC-268) 本地主页交互：最近项目、统一续作、示例替换确认与焦点；导航目标7/7及浏览器smoke通过，360/768/1440px无溢出。Linear In Review，人工视觉/业务UAT未验。
 - [ ] 真实provider/平台与素材许可、实际云资源、真实ReferenceSet/DAM及人工Go：FBC-246/247/248保持后续门禁，未运行Actor/付费调用/部署。
 - 保留原Sites线上预览和所有旧工作区改动。获准变化的5个Web源码在scripts/preview-review.json列精确摘要（统一LF）；其他Web文件/媒体、Sites绑定、导出脚本和原V0.5继续保护。后续源码变更需重新审阅摘要，不自动放行。
 
 - [x] 本地npm run check:cloud：19工程+22前端+25既有Mock+38输入门禁+17Reference=121项，typecheck/静态构建通过；独立复核无P1/P2。
-- [ ] FBC-245/268源码审阅后按授权提交、推送与PR交付；新改动尚无远端CI，不能使用PR3 CI代替。
+- [x] FBC-245/268已审查、提交推送并交付[PR4](https://github.com/FlipBelt/creative-intelligence-studio/pull/4)。应用提交b018782的[push CI39739763264](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/39739763264)与[PR CI39739848630](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/39739848630)均success；Host/Dev Container各121项、typecheck/build通过。
 - [x] FBC-267已随[PR3](https://github.com/FlipBelt/creative-intelligence-studio/pull/3)合并至main ca8bc97；[main CI39733146440](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/39733146440)双job成功，Linear267 Done、236/220仍In Progress。前述首批Draft/保护未启用是历史快照。
 
 
@@ -87,3 +87,9 @@ P0-WEB-007 [x]（2026-09-21）：用户批准输入框核心首页、参考瀑�
 当前部署目标经Sites回读为既有绑定站点，保持owner-private访问范围；交付仅静态主页，Mock不作为线上服务运行。原Sites版本4/source714cf137保留为回滚点。本轮不请求合并GitHub PR；发布使用审查且CI通过的同一分支提交，GitHub主分支保护保持。
 
 本批源码审查/本地实现为已完成项；PR/对应SHA远端CI/Sites保存版本及部署状态属于单独回执，以[Linear FBC-245](https://linear.app/j21nianyi/issue/FBC-245)和[FBC-268](https://linear.app/j21nianyi/issue/FBC-268)的本轮最新记录为准。自动验证/技术发布不替代人工视觉、业务或真实provider验收；FBC-244真实资源/资格/许可及246～248门禁继续开放。
+
+## 2026-10-22：生产技术发布回执
+
+- [x] 应用提交b018782a129740c8e3382b99c3b6893821ed98e5已发布为Sites v5，部署succeeded；[正式CIS地址](https://creative-intelligence-studio.nianyi21j.chatgpt.site)。同一project与owner-private访问策略回读不变，旧v4保留为回滚点。主页面200、8个页面引用JS/CSS均200且摘要逐文件匹配本地构建。
+- [x] FBC-245/268及父243/220已同步PR、CI、版本/部署回执，完整描述规范化回读4/4匹配；245/268仍In Review，PR开放未合并，GitHub main未变。
+- 本次发布仅静态主页；Reference Mock仍为合成工程工具。真实provider/许可/资源/恢复和人工UAT继续开放。后续仅文档收口提交不改变已发布应用代码；各提交与对应CI在PR查看。

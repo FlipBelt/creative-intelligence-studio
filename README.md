@@ -67,3 +67,7 @@ OpenDesign 参考对象已由用户确认：[nexu-io/open-design](https://github
 当前部署目标经Sites回读为既有绑定站点，保持owner-private访问范围；交付仅静态主页，Mock不作为线上服务运行。原Sites版本4/source714cf137保留为回滚点。本轮不请求合并GitHub PR；发布使用审查且CI通过的同一分支提交，GitHub主分支保护保持。
 
 本批源码审查/本地实现为已完成项；PR/对应SHA远端CI/Sites保存版本及部署状态属于单独回执，以[Linear FBC-245](https://linear.app/j21nianyi/issue/FBC-245)和[FBC-268](https://linear.app/j21nianyi/issue/FBC-268)的本轮最新记录为准。自动验证/技术发布不替代人工视觉、业务或真实provider验收；FBC-244真实资源/资格/许可及246～248门禁继续开放。
+
+## 2026-10-22 发布回执
+
+[FBC-245/268 PR4](https://github.com/FlipBelt/creative-intelligence-studio/pull/4)已创建，应用提交b018782经Host/Dev Container CI后发布Sites v5；[当前正式地址](https://creative-intelligence-studio.nianyi21j.chatgpt.site)，仍仅本人访问。主页交互已上线，Reference Mock仅为合成测试工具，真实数据源/生成/DAM未接入。PR保持开放，人工业务/视觉UAT另验；详细状态见docs/TODO.md及Linear。
