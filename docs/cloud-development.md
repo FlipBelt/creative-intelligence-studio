@@ -6,7 +6,7 @@
 
 只读回读确认：PR #2 已于 2026-10-16 合并，main 为 `5ed3e6e16e9fa391ec0f5d375ac637cdb090d467`。主分支保护已启用，要求 Host checks / Dev container checks、strict 和 enforce_admins，禁止 force push / deletion。以下“PR待审/保护未启用”是首批交付时的历史记录。
 
-本轮不再重复等待 Penpot：#12525 子项标为等待上游，独立实施 [FBC-267](https://linear.app/j21nianyi/issue/FBC-267) 合成输入包离线门禁。说明见 [输入包门禁](../tools/pilot-input/README.md)；新测试接入既有 `check:cloud`，本轮实际本地验证结果在 TODO 单独记录，不冒称新提交的 GitHub CI 已运行。实际权限、许可、备份恢复、真实客户端/DAM 回执及人工验收仍须逐项完成。
+本轮不再重复等待 Penpot：#12525 子项标为等待上游，独立实施 [FBC-267](https://linear.app/j21nianyi/issue/FBC-267) 合成输入包离线门禁。说明见 [输入包门禁](../tools/pilot-input/README.md)；新测试接入既有 `check:cloud`，本轮实际本地验证结果在 TODO 单独记录，不冒称新提交的 GitHub CI 已运行。实际权限、许可、备份恢复及真实客户端/DAM 回执仍须按相关接入范围完成；一般体验改为实际使用反馈，普通技术任务按[当前收口规则](acceptance.md)完成，不统一追加专门人工 UAT。
 
 ## 范围与输入
 
@@ -50,7 +50,7 @@ npm run dev
 
 `check:preview` 以本批基线检查 `apps/web`、原预览启动/导出脚本、原始 V0.5 和 Sites 绑定不变。它仅是本次改造的保护门禁；未来经过授权修改预览时，需要审阅并显式更新保护范围，不将预览永久冻结。
 
-CI 成功不代表分支保护已经启用；GitHub 保护规则和人工审批配置须单独核验。容器在 CI 中成功运行也不代表用户已亲自在 Codespaces 完成体验验收。
+CI 成功不代表分支保护已经启用；GitHub 保护规则和人工审批配置须单独核验。容器在 CI 中成功运行不等于用户已亲自体验 Codespaces；该体验可在实际使用中反馈，不追加为开发环境技术交付的统一关闭门槛。
 
 ## Mock 契约
 
@@ -85,7 +85,7 @@ npm run test:mock
 | [FBC-232](https://linear.app/j21nianyi/issue/FBC-232) | 最小权限 CI 与保护检查 | 最终 SHA 的成功 CI |
 | [FBC-233](https://linear.app/j21nianyi/issue/FBC-233) | Mock 契约与双传输 | 目标测试、负向测试 |
 | [FBC-234](https://linear.app/j21nianyi/issue/FBC-234) | 干净云端验证与 Draft PR | PR、SHA、CI、独立回读 |
-| [FBC-235](https://linear.app/j21nianyi/issue/FBC-235) | 真实客户端与 DAM 回执 | 后续真实调用、设计师 UAT、登记 ID |
+| [FBC-235](https://linear.app/j21nianyi/issue/FBC-235) | 真实客户端与 DAM 回执 | 后续真实调用、版本/内容批准与登记 ID；使用体验在实际工作中反馈 |
 | [FBC-236](https://linear.app/j21nianyi/issue/FBC-236) | 实际权限、公开边界与恢复 | 后续真实隔离验证 |
 
 本仓 `docs/TODO.md` 继续保留开发待办真源。Linear 同步执行状态、优先级、依赖和证据：交付/验收定义经仓库 PR 更新后回写 Linear，状态和回执经 Linear 回读后更新本仓记录；冲突明确记录待协调，不自动覆盖或依赖两个自由编辑副本。
