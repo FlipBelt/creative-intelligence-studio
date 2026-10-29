@@ -2,7 +2,11 @@
 
 Agent 驱动的创意工具生态与素材中转试验；仓库同时保留既有创作工作台预览。
 
-状态：2026-09-21 已实现首版 Next.js 前端交互预览；设计与真实业务验收仍待人工完成。团队仓库：[FlipBelt/creative-intelligence-studio](https://github.com/FlipBelt/creative-intelligence-studio)，公开可见。Sites 发布由 .openai/hosting.json 绑定，同一预览持续更新。
+主线范围：已实现首版 Next.js 前端交互预览及后续工程门禁；真实身份、知识、素材网关和生成服务仍未接入。团队仓库：[FlipBelt/creative-intelligence-studio](https://github.com/FlipBelt/creative-intelligence-studio)，公开可见。Sites 发布由 .openai/hosting.json 绑定，同一预览持续更新。
+
+2026-10-29 规则及状态同步：普通软件交付按适用自动检查和关键路径验证收口，体验在实际使用中反馈；不统一等待专门真人 UAT。真实权限、素材许可、数据准确性、恢复和内容批准要求保留，承诺上线仍需发布及最小线上检查，具体见 [交付与验证规则](docs/acceptance.md)。这不构成部署、凭据配置、付费或业务写入授权。
+
+已回读 [FBC-245](https://linear.app/j21nianyi/issue/FBC-245) 的 Reference 契约/合成 Mock 技术交付和 [FBC-268](https://linear.app/j21nianyi/issue/FBC-268) 的 Sites v6 精选素材首页交付均为 Done。对应 [PR #4](https://github.com/FlipBelt/creative-intelligence-studio/pull/4) 仍开放、未合并（head `55ebd7d7f99f45bb1f51969ab8564c5e95ebb3ee`），本分支不包含其应用代码。既有发布回执记录 [当前 Sites](https://creative-intelligence-studio.nianyi21j.chatgpt.site) v6/source `da3b83d6575885b0699fadfe05aa20f7ea68d593`，owner-private、v5 可回滚；本次只同步证据，未重新部署或现场实测。真实 provider、正式 Agent 插件、DAM 写入和阿里云部署仍未交付；主线下方旧首页说明只描述本仓现有代码。
 
 2026-10-16 当前路线见 [FBC-220](https://linear.app/j21nianyi/issue/FBC-220)：优先复用千问办公/兼容 Agent、产品知识、DAM 与专业设计工具。首批仅增加可重建开发环境、CI 和合成数据 Mock MCP；真实企业客户端、素材授权、业务审核及 DAM 登记仍待验证。既有预览保持，不在本批部署或更新 Sites。
 
@@ -53,4 +57,4 @@ OpenDesign 参考对象已由用户确认：[nexu-io/open-design](https://github
 - 作品库只收员工完成的图片：本地提交、四项质量评分、事实检查与精选筛选。技能支持文本上传、版本审核/退回/停用，已发布版本才可选择；不执行技能。
 - 管理员角色切换只是明确标注的流程演示，真实身份、审批、共享存储与服务端权限尚未接入。
 - 详细边界与摄影来源见 [预览范围](docs/preview-scope.md)。
-首版预览：[打开 CIS 工作台](https://creative-intelligence-studio.sunwelljohn254892.chatgpt.site)（Sites默认私有访问）。
+首版预览历史地址：https://creative-intelligence-studio.sunwelljohn254892.chatgpt.site 。当前 Sites 地址与主线差异见上方 2026-10-29 同步记录。
