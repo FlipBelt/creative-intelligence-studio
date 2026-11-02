@@ -7,7 +7,7 @@
 - [x] 完整 `check:cloud`：179项测试、typecheck、静态构建通过；独立插件与范围复核无阻断问题。
 - [x] 源码提交 `79ea86e341eb951067559f74d552e4e201a28db9` 已推送，交付 [PR #6](https://github.com/FlipBelt/creative-intelligence-studio/pull/6)；对应 [CI 41370053588](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370053588) Host/Dev Container均成功。PR叠加在仍开放的PR #4分支，不请求合并或修改main。
 - [x] 部署包已生成：41个静态文件逐字节匹配本地构建，另有仅规范化static.directory的hosting manifest；不含私有候选或源码。
-- [ ] 站点部署及Linear本轮回执：Sites/插件发现接口不可调用，原生codex_apps启动握手超时；未得到新版本/部署或Linear写后回读结果，不记完成。具体阻塞与归档摘要见[发布记录](research/cis-source-release-2026-11-02.md)。
+- [x] 同一素材站 v7 已部署succeeded，source精确 `2ffc4325cfc29ca6da4b3619090eaa0701f267a8`，旧v6保留回滚；完整访问策略回读不变。FBC-16/220/11及ADR的完整新段写后回读匹配，状态仍In Progress/In Progress/Done；通道早期阻塞已恢复。浏览器导航验证超时，不计新增业务/视觉验收。实际回执见[发布记录](research/cis-source-release-2026-11-02.md)。
 
 ## 当前执行状态（2026-10-29）
 

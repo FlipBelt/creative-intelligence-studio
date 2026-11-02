@@ -18,18 +18,29 @@ Web、Sites 绑定、导出脚本及原始 V0.5 相对 `55ebd7d` 无差异；静
 
 ## 发布回执
 
-本段仅记录已发生的结果。代码推送、对应SHA的远端CI、站点源码同步和站点部署分别验证；未取得平台成功回执不将本地构建写成线上更新。
+本段仅记录已发生的结果。代码推送、对应SHA的远端CI、站点源码同步和站点部署分别验证。已取得同一素材站v7平台成功回执，完整访问策略仍相同。
 
 源码提交 `79ea86e341eb951067559f74d552e4e201a28db9` 已推送至 `codex/fbc16-readonly-plugin`，远端分支SHA独立读回一致。[PR #6](https://github.com/FlipBelt/creative-intelligence-studio/pull/6)叠加在仍开放的PR #4源码分支；不将PR #4当已合并，本轮不请求合并。
 
-[CI 41370053588](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370053588)对应上述完整SHA，结论success；Host checks（job125038389294）及真实Dev Container checks（job125038389655）和全部步骤均success。容器日志实际读到19/30/25/38/17/50各套件0fail及构建成功；Host状态/步骤成功已回读，日志下载遇TLS超时，不冒称两份原始日志均读取。
+[CI 41370053588](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370053588)对应上述完整SHA，结论success；Host checks（job125038389294）及真实Dev Container checks（job125038389655）和全部步骤均success。两份日志均实际读到19/30/25/38/17/50各套件0fail及构建成功；Host日志初次TLS超时，之后读取成功。部署源文档提交 `2ffc4325cfc29ca6da4b3619090eaa0701f267a8` 的 [CI 41370678095](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370678095) 双job同样success，与应用提交仅两份文档不同。
 
 本机官方package-site helper生成静态归档，42文件：41个静态文件与本地out逐字节一致，另1个hosting manifest仅将static.directory规范化为dist；保留原project_id。SHA256为 `3619a5bdcdf688b10a3efbdd2c2ca3d1950440dbfe6551a2e2fc6518bbfb3c0f`。没有源码、凭据、私有候选或node_modules。初次额外检查按out而非helper规范化的dist寻找入口失败，修正检查映射后全部字节/manifest通过，未改包。
 
-发布通道阻塞：
+历史阻塞与恢复：
 
 - Sites `get_site` 与插件发现接口均返回“tool is not available to the model”。
 - 受支持的Codex0.150.1 AppServer目录包含Sites/Linear工具，但同一session约9–52秒均runtimeStatus=starting；目录存在不代表已连接。实际 `sites.get_site` 调用失败于“timed out awaiting tools/list after 30s”，没有调用部署或读取凭据。
 - 根据[官方配置参考](https://learn.chatgpt.com/docs/config-file/config-reference)进行一次只影响诊断进程的startup_timeout_sec=60尝试；内建codex_apps无法单独以该表覆盖，返回invalid transport，进程退出。没有改持久配置、权限或审批，没有继续无变化重试。
 
-未得到新站点版本/部署或本轮Linear写后回读回执，因此两项保持未完成。已有源码、归档、PR与CI可复用；原素材站保留。部署及同步授权仍有效，恢复受支持连接后继续，无需重复请求授权。
+随后实际Sites/Linear接口恢复，已读取同一站点v6与owner-private策略，并通过官方source helper打开/同步源码、核对远端HEAD、打包，再完成原生私有发布。无需扩大权限或再次请求授权；早期不可用不再是当前阻塞。
+
+## 最终部署与同步回执
+
+- 版本：**v7**；部署ID `appgdep_6ae7e2beaa7c81918c7aeadd6f02efd6`，状态 **succeeded**，2026-11-02 09:09:25（北京时间）。
+- 地址：[CIS素材站](https://creative-intelligence-studio.nianyi21j.chatgpt.site)；保留现有素材站界面与定位。
+- 源码：`2ffc4325cfc29ca6da4b3619090eaa0701f267a8`；version_id `appgprj_6ab0a64b17008191a59d62395db2426e~appgver_48c21bb10f2081918cb94a5c127eea33`。
+- 部署包由官方source helper生成，42文件，gzip SHA256 `94fcfb8d974a5425213b3efd6f3be38c77d96b0086421473259f339a6e349224`；平台归档content_hash另为 `sha256:9fd74a8d3223705ed013231e3bc13bd578685c3494747d9d19819c315869773f`，不把平台内部归档摘要冒充本机gzip摘要。
+- 部署后独立get_site/get_site_version回读：v7、source完整SHA一致，完整access_policy与部署前相同，仅本人访问；旧v6保留回滚。has_mcp=false，没有将本机插件变成访客线上服务。
+- 生产页面浏览器导航超时，未新增浏览器业务/视觉验收；原生平台部署成功、版本和访问策略已核验。
+- Linear FBC-16/220/11与ADR完整新段规范化回读匹配；状态保留In Progress/In Progress/Done。实际设计、媒体用途/权限及DAM回执不计完成；SDK由FBC-286等待上游。
+- 本报告的最终文档收口提交与部署源仅文档不同，不重复部署相同应用代码。最终Git/CI以PR #6最新head为准，生产来源始终使用本节已核验的2ffc432。
