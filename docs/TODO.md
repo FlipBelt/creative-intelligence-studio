@@ -1,5 +1,34 @@
 # CIS 实施待办
 
+## 本次源码交付与发布（2026-11-02）
+
+用户已明确授权本批提交、推送并部署。以下10月29日“不提交/推送/部署”为历史范围；本轮使用相同项目与素材站访问范围，不扩大媒体许可或业务写入。只读插件、项目 Skill 与文档属于源码交付；静态站点部署不等于向站点访客上线了插件或真实 DAM。
+
+- [x] 完整 `check:cloud`：179项测试、typecheck、静态构建通过；独立插件与范围复核无阻断问题。
+- [x] 源码提交 `79ea86e341eb951067559f74d552e4e201a28db9` 已推送，交付 [PR #6](https://github.com/FlipBelt/creative-intelligence-studio/pull/6)；对应 [CI 41370053588](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370053588) Host/Dev Container均成功。PR叠加在仍开放的PR #4分支，不请求合并或修改main。
+- [x] 部署包已生成：41个静态文件逐字节匹配本地构建，另有仅规范化static.directory的hosting manifest；不含私有候选或源码。
+- [x] 同一素材站 v7 已部署succeeded，source精确 `2ffc4325cfc29ca6da4b3619090eaa0701f267a8`，旧v6保留回滚；完整访问策略回读不变。FBC-16/220/11及ADR的完整新段写后回读匹配，状态仍In Progress/In Progress/Done；通道早期阻塞已恢复。浏览器导航验证超时，不计新增业务/视觉验收。实际回执见[发布记录](research/cis-source-release-2026-11-02.md)。
+
+## 当前执行状态（2026-10-29）
+
+本节与本轮 Linear 回读同步，覆盖下方历史快照中的旧状态；历史记录不删除。采用通用 4.0 候选 Brief，款式与款号待指定；保留 Sites v6，本批不提交、推送或部署。
+
+| 事项 | 当前状态 | 交付与剩余范围 |
+|---|---|---|
+| [FBC-7](https://linear.app/j21nianyi/issue/FBC-7) | [x] Done | 已验证基本可编辑线框、保存重开、原生读取/断开重连、SVG 与 UI 原生备份隔离恢复；按已有证据收口 |
+| [FBC-9](https://linear.app/j21nianyi/issue/FBC-9) | [x] Done | ADR-001 Accepted，架构决策文档完成；不等于真实 MVP 或 DAM 完成 |
+| [FBC-286](https://linear.app/j21nianyi/issue/FBC-286) | [ ] Backlog / 等待上游 | SDK 新归档及对应隔离恢复独立跟踪；不阻塞 Brief、Skill 与基本设计 |
+| [FBC-10](https://linear.app/j21nianyi/issue/FBC-10) | [ ] In Progress | 通用候选 Brief + 三项图片引用元数据；具体产品身份、用途已确认的正式精选媒体仍待补 |
+| [FBC-11](https://linear.app/j21nianyi/issue/FBC-11) | [x] Done | 两个项目 Skill 格式校验、Codex 原生发现、真实候选关键样例及三组独立边界前向检查完成；未宣称真实设计写入 |
+| [FBC-12](https://linear.app/j21nianyi/issue/FBC-12) | [ ] In Progress | 本批推进有来源的文档交接；本次真实设计目标、实际设计/保存/重开结果仍待完成 |
+| [FBC-235](https://linear.app/j21nianyi/issue/FBC-235) | [ ] Backlog | 实际设计交付与 DAM 登记/版本/审核回执仍开放；SDK 自动归档不再作为前置 |
+| [FBC-236](https://linear.app/j21nianyi/issue/FBC-236) | [ ] In Progress | 实际范围内权限/撤销/到期及媒体用途；跨角色扩大使用时再验证，未启用 NAS 不阻塞元数据文档 |
+| [FBC-16](https://linear.app/j21nianyi/issue/FBC-16) | [ ] In Progress | 当前会话已加载四工具，并以真实已发布知识页图片元数据形成候选引用；正式 DAM、原图、许可及跨角色/撤销不计完成 |
+
+项目 Skill：[创意研究员](../.agents/skills/cis-creative-researcher/SKILL.md)、[电商策划师](../.agents/skills/cis-commerce-planner/SKILL.md)。候选 Brief、引用清单及无图交接保存在用户私有工作目录，不将真实知识正文放入公开仓库。验证见 [本轮收口报告](research/cis-minimum-loop-closeout-2026-10-29.md)。
+
+## 历史实施记录
+
 日期：2026-09-21。所属仓库：D:\creative-intelligence-studio。
 用户已授权项目启动、规划文档提交、推送到团队仓并公开。以下实施路线不代表应用已完成，也不自动安排后台开发。
 [x]表示交付与对应验证完成；人工验收另列，不以文档检查替代。
@@ -103,3 +132,13 @@ v5技术发布已完成，但用户指出默认主页仍为旧创作输入框，
 - [x] 交接辅助函数8项含负向测试；浏览器验证搜索/收藏/来源/加入、复制成功/失败手工回退/空态、旧草稿刷新与参考回跳、跳过导航，以及360/768/1440px无横向溢出。check:cloud共129项（19工程/30前端/25Mock/38输入门禁/17Reference）、typecheck与静态构建通过；独立复核无P1/P2。复制失败仅在本地临时注入，刷新已恢复。8个Web文件列精确摘要，保护其他源码、媒体、Sites绑定和导出脚本。
 - [x] 纠偏提交da3b83d已在现有PR4交付；PR CI39747766188/push CI39747758147均success，Host及真实Dev Container各129项与typecheck/build通过。同一owner-private Sites v6已succeeded/source精确匹配，用户现有预览页刷新后确认精选素材标题1个、创作输入框0个；访问策略不变，v5保留回滚点。PR4未合并，人工视觉/业务UAT仍待验收。
 - [ ] 正式Agent插件及受控素材MCP：复用FBC-16/相关任务，需真实来源、最小只读身份/项目权限、许可/撤销与客户端验收；当前FBC-245合成测试不等于插件交付。
+
+
+## 2026-10-22 FBC-16：知识图片引用最小只读插件（本机技术接入完成）
+
+用户确认只接已授权知识库的图片引用与元数据，不开放原图下载、商用或第三方生成；保留现有素材站。引用集仅已发布知识页派生，不冒称正式DAM人工精选。
+
+- [x] 复核FBC-8审计与当前真实三工具；抽样26图片+1视频，资产级hash/版权/许可字段缺失，AI资产连接器未连接，NAS不访问。
+- [x] 实现并独立审查4只读工具、Codex委托适配器、插件包装和失败/脱敏测试；长会话stdout预算P2已修复，最终目标50项通过，安装路径兼容回归4项通过，独立复核无剩余P1/P2。
+- [x] 本机安装并启用cis-materials@cis-local 0.1.1；独立Codex原生加载materials/4工具connected，真实读取26图片/1知识页引用集/26集合图片及单项WebP元数据成功；版本不符与非本页引用实际拒绝，8/8安装文件摘要一致。当前对话未热加载新工具，真人使用及完整跨角色/撤销待验。Linear同步回读回执见本批报告。
+- [ ] 正式DAM精选、原图受控读取、真实跨角色/撤销、素材许可和人工业务验收仍开放；不以本批元数据接通自动关闭FBC-14/15/235/236。

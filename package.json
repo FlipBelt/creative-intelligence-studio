@@ -17,10 +17,11 @@
     "test:cloud-checks": "node --test scripts/cloud-checks.test.mjs",
     "test:mock": "node --test tests/mock-mcp/*.test.mjs",
     "mock:stdio": "node tools/mock-mcp/stdio.mjs",
-    "check:cloud": "npm run check:toolchain && npm run check:preview && npm run test:cloud-checks && npm run typecheck && npm test && npm run test:mock && npm run test:pilot-input && npm run test:reference && npm run build",
+    "check:cloud": "npm run check:toolchain && npm run check:preview && npm run test:cloud-checks && npm run typecheck && npm test && npm run test:mock && npm run test:pilot-input && npm run test:reference && npm run test:materials && npm run build",
     "test:pilot-input": "node --test tests/pilot-input/*.test.mjs",
     "test:reference": "node --test tests/reference-mock/*.test.mjs",
-    "mock:reference": "node tools/mock-mcp/reference-stdio.mjs"
+    "mock:reference": "node tools/mock-mcp/reference-stdio.mjs",
+    "test:materials": "node --test tests/materials-plugin/*.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
