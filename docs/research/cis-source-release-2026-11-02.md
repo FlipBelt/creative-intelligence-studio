@@ -20,4 +20,16 @@ Web、Sites 绑定、导出脚本及原始 V0.5 相对 `55ebd7d` 无差异；静
 
 本段仅记录已发生的结果。代码推送、对应SHA的远端CI、站点源码同步和站点部署分别验证；未取得平台成功回执不将本地构建写成线上更新。
 
-当前发布通道诊断：Sites原生 `get_site` 与插件发现接口均返回“tool is not available to the model”。这不是新的部署授权请求；本轮继续完成源码推送与可复用构建，保留现有站点，核实受支持恢复通道后再记录实际部署结果。
+源码提交 `79ea86e341eb951067559f74d552e4e201a28db9` 已推送至 `codex/fbc16-readonly-plugin`，远端分支SHA独立读回一致。[PR #6](https://github.com/FlipBelt/creative-intelligence-studio/pull/6)叠加在仍开放的PR #4源码分支；不将PR #4当已合并，本轮不请求合并。
+
+[CI 41370053588](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370053588)对应上述完整SHA，结论success；Host checks（job125038389294）及真实Dev Container checks（job125038389655）和全部步骤均success。容器日志实际读到19/30/25/38/17/50各套件0fail及构建成功；Host状态/步骤成功已回读，日志下载遇TLS超时，不冒称两份原始日志均读取。
+
+本机官方package-site helper生成静态归档，42文件：41个静态文件与本地out逐字节一致，另1个hosting manifest仅将static.directory规范化为dist；保留原project_id。SHA256为 `3619a5bdcdf688b10a3efbdd2c2ca3d1950440dbfe6551a2e2fc6518bbfb3c0f`。没有源码、凭据、私有候选或node_modules。初次额外检查按out而非helper规范化的dist寻找入口失败，修正检查映射后全部字节/manifest通过，未改包。
+
+发布通道阻塞：
+
+- Sites `get_site` 与插件发现接口均返回“tool is not available to the model”。
+- 受支持的Codex0.150.1 AppServer目录包含Sites/Linear工具，但同一session约9–52秒均runtimeStatus=starting；目录存在不代表已连接。实际 `sites.get_site` 调用失败于“timed out awaiting tools/list after 30s”，没有调用部署或读取凭据。
+- 根据[官方配置参考](https://learn.chatgpt.com/docs/config-file/config-reference)进行一次只影响诊断进程的startup_timeout_sec=60尝试；内建codex_apps无法单独以该表覆盖，返回invalid transport，进程退出。没有改持久配置、权限或审批，没有继续无变化重试。
+
+未得到新站点版本/部署或本轮Linear写后回读回执，因此两项保持未完成。已有源码、归档、PR与CI可复用；原素材站保留。部署及同步授权仍有效，恢复受支持连接后继续，无需重复请求授权。

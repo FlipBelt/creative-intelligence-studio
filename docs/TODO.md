@@ -5,7 +5,9 @@
 用户已明确授权本批提交、推送并部署。以下10月29日“不提交/推送/部署”为历史范围；本轮使用相同项目与素材站访问范围，不扩大媒体许可或业务写入。只读插件、项目 Skill 与文档属于源码交付；静态站点部署不等于向站点访客上线了插件或真实 DAM。
 
 - [x] 完整 `check:cloud`：179项测试、typecheck、静态构建通过；独立插件与范围复核无阻断问题。
-- [ ] Git提交/推送、对应SHA远端CI及站点部署：以[本轮发布记录](research/cis-source-release-2026-11-02.md)的实际回执更新。
+- [x] 源码提交 `79ea86e341eb951067559f74d552e4e201a28db9` 已推送，交付 [PR #6](https://github.com/FlipBelt/creative-intelligence-studio/pull/6)；对应 [CI 41370053588](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/41370053588) Host/Dev Container均成功。PR叠加在仍开放的PR #4分支，不请求合并或修改main。
+- [x] 部署包已生成：41个静态文件逐字节匹配本地构建，另有仅规范化static.directory的hosting manifest；不含私有候选或源码。
+- [ ] 站点部署及Linear本轮回执：Sites/插件发现接口不可调用，原生codex_apps启动握手超时；未得到新版本/部署或Linear写后回读结果，不记完成。具体阻塞与归档摘要见[发布记录](research/cis-source-release-2026-11-02.md)。
 
 ## 当前执行状态（2026-10-29）
 
