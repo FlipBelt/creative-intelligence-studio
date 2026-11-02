@@ -1,0 +1,20 @@
+{
+  "name": "cis-materials",
+  "version": "0.1.1",
+  "description": "只读检索已授权知识库图片引用、元数据与知识页引用集；不下载原图或执行生成。",
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CIS 素材只读",
+    "shortDescription": "检索知识库图片引用与元数据",
+    "longDescription": "用户委托的只读知识图片参考。保留版本与来源，引用集不等于人工精选；不下载原图，不授予商用或第三方生成许可。",
+    "developerName": "FlipBelt",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "查找已授权知识库中的袋鼠裤图片引用，保留来源和版本。"
+    ]
+  }
+}

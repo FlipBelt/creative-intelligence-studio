@@ -1,6 +1,20 @@
 # Creative Intelligence Studio
 
-当前产品定位：精选素材站与Agent工具入口。首页以发现、选择、来源及清单为核心；旧网页创作演示后置。v5曾保留旧创作输入框；本轮已完成素材优先首页、清单交接和旧版入口兼容的纠偏，已发布同一Sites v6（source da3b83d、部署succeeded），并刷新现有预览页确认无创作输入框；回执见Linear FBC-268。正式Agent插件/真实素材网关仍待接入，不以Mock或手工复制冒充。
+## 本次源码交付与发布（2026-11-02）
+
+用户已授权提交、推送并部署本批改动，覆盖前一阶段“暂不提交/部署”的范围。交付包含知识图片元数据只读插件、两个项目 Skill 和阶段收口文档；私有候选 Brief 不进入公开仓库。现有 Web 源码与素材站定位保持，部署不把本机 Codex 插件变成面向站点访客的线上素材服务，也不开放原图或媒体使用权。
+
+本轮完整 `npm run check:cloud` 已通过179项测试、类型检查与静态构建；独立复核无阻断问题。Git 提交/远端 CI 与站点版本/部署回执分开记录；未取得新部署成功回执前，不称线上已更新。详见 [发布记录](docs/research/cis-source-release-2026-11-02.md)。
+
+## 当前执行口径（2026-10-29）
+
+ADR-001 已接受轻量路线：知识与图片元数据 → 候选 Brief → 无图线框交接 → 专业设计工具内局部制作。FBC-7 的基本可编辑设计、保存重开、原生读取和手工原生交付按已有证据收口；SDK 整文件自动归档独立进入 [FBC-286](https://linear.app/j21nianyi/issue/FBC-286) 等待上游，不阻塞文档、Skill 或基本设计。
+
+两个项目 Skill 为 [创意研究员](.agents/skills/cis-creative-researcher/SKILL.md) 与 [电商策划师](.agents/skills/cis-commerce-planner/SKILL.md)。首轮采用通用 4.0 候选 Brief，款式与款号待指定；仅使用已授权知识库图片引用和元数据，不下载原图、不推断商用或第三方处理许可。真实设计文件及 DAM 登记仍须各自回执。
+
+本批保留现有素材站 v6，不修改 Web、Sites 配置或原始 V0.5，不提交、推送或部署。分阶段验收见 [验收口径](docs/acceptance.md)，当前任务与历史记录见 [TODO](docs/TODO.md)。
+
+当前产品定位：精选素材站与Agent工具入口。首页以发现、选择、来源及清单为核心；旧网页创作演示后置。v5曾保留旧创作输入框；本轮已完成素材优先首页、清单交接和旧版入口兼容的纠偏，已发布同一Sites v6（source da3b83d、部署succeeded），并刷新现有预览页确认无创作输入框；回执见Linear FBC-268。本机现有FBC-16知识图片元数据只读插件；正式DAM素材网关、原图及企业分发仍待接入，不以Mock或手工复制冒充。
 
 Agent 驱动的创意工具生态与素材中转试验；仓库同时保留既有创作工作台预览。
 
@@ -73,3 +87,10 @@ OpenDesign 参考对象已由用户确认：[nexu-io/open-design](https://github
 ## 2026-10-22 发布回执
 
 [FBC-245/268 PR4](https://github.com/FlipBelt/creative-intelligence-studio/pull/4)已创建，应用提交b018782经Host/Dev Container CI后发布Sites v5；[当前正式地址](https://creative-intelligence-studio.nianyi21j.chatgpt.site)，仍仅本人访问。主页交互已上线，Reference Mock仅为合成测试工具，真实数据源/生成/DAM未接入。PR保持开放，人工业务/视觉UAT另验；详细状态见docs/TODO.md及Linear。
+
+
+## FBC-16：知识库图片引用只读插件
+
+本轮用户选择仅接入已授权知识库的图片引用与元数据，不开放原图下载、商用或第三方生成；现有v6素材站保持。独立插件位于 [plugins/cis-materials](plugins/cis-materials/README.md)，源码分支 `codex/fbc16-readonly-plugin`，基于已交付PR4的文档head55ebd7d，不把PR4当已合并。
+
+插件四工具覆盖检索、固定Release读取和知识页引用集；引用集注明由已发布知识页派生，不是人工精选认证或正式DAM集合。真实来源、授权与客户端回执见 [本批核验报告](docs/research/fbc-16-kb-readonly-plugin-2026-10-22.md)。执行 `npm run test:materials` 验证目标测试。正式业务/跨角色/撤销等验收须按报告单独记录。

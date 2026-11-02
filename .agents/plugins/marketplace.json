@@ -1,0 +1,20 @@
+{
+  "name": "cis-local",
+  "interface": {
+    "displayName": "CIS Local"
+  },
+  "plugins": [
+    {
+      "name": "cis-materials",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cis-materials"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
