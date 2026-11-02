@@ -95,3 +95,22 @@ FBC-6/7/8 实测与本批工程准备可并行；FBC-9 仍决定真实 P1 主入
 本批技术验证已完成：实现 SHA `8d406d0c1e2ac7f98cdf58932729094794afa8b4` 的 [CI 38848097680](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/38848097680) 在 Linux 宿主与实际 Dev Container 内均通过 `check:cloud`。容器 job 实际执行了构建、启动、postCreate 锁文件安装和容器内检查；每条路径11项工程检查、15项旧预览测试、25项Mock测试、typecheck和静态构建全部通过。本机Windows也完成相同检查。本次文档回写提交的最终CI见 [Draft PR #2](https://github.com/FlipBelt/creative-intelligence-studio/pull/2) 和Linear回执。
 
 PR待审未合并，主分支和线上预览保持。实际GitHub分支保护仍未启用；用户亲自操作Codespaces、真实千问/客户端、Penpot与DAM接通、业务UAT、公开Git历史审查和独立恢复不在本批通过范围。
+
+## 2026-10-22：PR3 合并与获准预览源码调整
+
+[CIS PR3](https://github.com/FlipBelt/creative-intelligence-studio/pull/3)已合并为main ca8bc97b40c401039ba89b95d1c13d84a93e6e95；[main CI39733146440](https://github.com/FlipBelt/creative-intelligence-studio/actions/runs/39733146440)的Host/Dev container checks均实际成功，各环境11工程/15前端/25Mock/38输入检查。原文“main为5ed3e6e”是此前阶段快照，保护继续生效；这些远端结果不覆盖本轮尚未提交的主页/Reference改动。
+
+用户授权按现有项目结构补主页交互。scripts/preview-review.json固定原基线，逐文件列出5个获准TS/TSX/CSS源码的SHA-256（严格UTF-8，CRLF统一LF）；运行时检查摘要、文件类型、真实路径及其他未获准差异。更改摘要必须与具体源码一并审阅，不在dev/build自动刷新。Web媒体、Sites绑定、导出脚本和原V0.5不能借清单豁免。
+
+本地dev会自动改写next-env.d.ts导入路径，门禁应拒绝该未列入文件；验证后只还原已核实的生成差异再运行完整检查，不扩大清单。新增Reference检查命令为npm run test:reference，启动为npm run mock:reference，均纳入check:cloud；未修改远端CI工作流或增加部署步骤。
+
+本轮本地check:cloud实际19工程/22前端/25旧Mock/38输入/17Reference共121项及typecheck/build通过；FBC-245和[FBC-268](https://linear.app/j21nianyi/issue/FBC-268)为In Review，等待后续源码交付。Sites线上预览保持。
+
+
+## 2026-10-22：本批审查、PR与发布授权
+
+用户已明确授权审查FBC-245/268，无阻塞后提交、推送、创建PR、同步Linear并部署生产；本节覆盖前述本地阶段“尚不推送/部署”的历史范围。本批两项独立代码审查未发现可操作P1/P2。变更范围仍为合成Reference契约/stdio Mock与现有主页交互，不开启真实采集、付费调用、DAM写入或生成服务。
+
+当前部署目标经Sites回读为既有绑定站点，保持owner-private访问范围；交付仅静态主页，Mock不作为线上服务运行。原Sites版本4/source714cf137保留为回滚点。本轮不请求合并GitHub PR；发布使用审查且CI通过的同一分支提交，GitHub主分支保护保持。
+
+本批源码审查/本地实现为已完成项；PR/对应SHA远端CI/Sites保存版本及部署状态属于单独回执，以[Linear FBC-245](https://linear.app/j21nianyi/issue/FBC-245)和[FBC-268](https://linear.app/j21nianyi/issue/FBC-268)的本轮最新记录为准。自动验证/技术发布不替代人工视觉、业务或真实provider验收；FBC-244真实资源/资格/许可及246～248门禁继续开放。

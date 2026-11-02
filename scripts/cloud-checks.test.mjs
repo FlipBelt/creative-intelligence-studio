@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { checkPreview } from "./check-preview.mjs";
+import { checkPreview, sourceDigest } from "./check-preview.mjs";
 import { checkToolchain } from "./check-toolchain.mjs";
 
 function fixture(t) {
@@ -82,4 +82,48 @@ test("dev container runs as node with no additional mounts or automatic server",
   assert.equal(config.postCreateCommand, "node scripts/check-toolchain.mjs && npm ci --ignore-scripts");
   assert.deepEqual(config.forwardPorts, [3100]);
   assert.equal(config.portsAttributes["3100"].onAutoForward, "silent");
+});
+
+function reviewSource(repo, files) {
+  repo.write("scripts/preview-review.json", JSON.stringify({ version: 1, baseline: repo.baseline, files }));
+}
+
+test("review manifest allows only exact reviewed source including CRLF checkout", t => {
+  const repo = previewFixture(t);
+  const text = "export default function Page() { return <main/>; }\n";
+  repo.write("apps/web/app/page.tsx", text.replace(/\n/g, "\r\n"));
+  reviewSource(repo, { "apps/web/app/page.tsx": sourceDigest(Buffer.from(text)) });
+  assert.deepEqual(checkPreview(repo).reviewed, ["apps/web/app/page.tsx"]);
+  repo.write("apps/web/app/page.tsx", text + "// later change\n");
+  assert.throws(() => checkPreview(repo), /digest differs/);
+});
+
+test("review manifest does not allow other source or media changes", t => {
+  const repo = previewFixture(t);
+  repo.write("apps/web/app/page.tsx", "// reviewed\n");
+  reviewSource(repo, { "apps/web/app/page.tsx": sourceDigest(Buffer.from("// reviewed\n")) });
+  repo.write("apps/web/new-page.tsx", "// not reviewed\n");
+  assert.throws(() => checkPreview(repo), /new-page\.tsx/);
+});
+
+for (const file of [".openai/hosting.json", "scripts/run-next.mjs", "apps/web/public/image.svg", "apps/web/../page.tsx"]) {
+  test("review manifest cannot exempt " + file, t => {
+    const repo = previewFixture(t);
+    reviewSource(repo, { [file]: "a".repeat(64) });
+    assert.throws(() => checkPreview(repo), /invalid reviewed source path/);
+  });
+}
+
+test("review manifest rejects malformed config, wrong baseline and missing source", t => {
+  const repo = previewFixture(t);
+  repo.write("scripts/preview-review.json", "{");
+  assert.throws(() => checkPreview(repo), /manifest invalid/);
+  repo.write("scripts/preview-review.json", JSON.stringify({version:1,baseline:"0".repeat(40),files:{}}));
+  assert.throws(() => checkPreview(repo), /invalid structure/);
+  reviewSource(repo, { "apps/web/missing.ts": "a".repeat(64) });
+  assert.throws(() => checkPreview(repo), /manifest invalid/);
+});
+
+test("source digests reject invalid UTF-8", () => {
+  assert.throws(() => sourceDigest(Buffer.from([0xff])));
 });

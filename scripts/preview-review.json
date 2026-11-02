@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "baseline": "714cf137f136f9a8b951b38a0a2a846d01b377aa",
+  "files": {
+    "apps/web/components/home-studio.tsx": "cd2fec4573fef5221f81fe4b70bc0086979b5c38a2900af90f94d40560935eb0",
+    "apps/web/app/page.tsx": "63f2b61430c7d343616635784f6b59383f49ad10cd1b017515a644ecd326c95c",
+    "apps/web/app/globals.css": "45af8f3282594623432906a0038704a9a0a7c7f9c40a2c64dea0937423377061",
+    "apps/web/lib/project-navigation.ts": "f6b06b76dcddd8928296a0238340be69812d34878c9210f98599511c38d7b749",
+    "apps/web/lib/project-navigation.test.ts": "78d91701fd1ff02c3f4d96cdbf1befa4f9a4cd703124ce68b77bca78580907ab",
+    "apps/web/components/reference-hub.tsx": "69f1fa57277647b85c9971786144f2e731613735e41f623bb84af6254fb8f0c8",
+    "apps/web/lib/curation.ts": "6dc42c5f243eb02a6b8a018c4965996022c98764f98ec0907ecb4eef2000a36e",
+    "apps/web/lib/curation.test.ts": "ec72c954676ed008d4b3886881aa014b875d4ff8a3a723c4c8761f9d3ecb6931"
+  }
+}
